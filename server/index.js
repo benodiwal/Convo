@@ -25,7 +25,7 @@ const io = new Server(http, {
     cors: true
 });
 
-/*  */
+/* Users */
 const users = {};
 
 /* Signaling Server */

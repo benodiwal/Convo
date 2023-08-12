@@ -2,7 +2,7 @@ import Footer from "../components/Footer"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { setLogin } from "../store"
+import { setLogin } from "../state"
 
 type VARIANT = "login" | "register"
 
