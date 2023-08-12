@@ -42,26 +42,47 @@ io.on("connection", (socket) => {
 
     /* Offer Channel */
     socket.on("offer", (targetUserId, offer) => {
-
+      const targetSocket = Object.keys(users).find(
+        (socketId) => users[socketId].userId == targetUserId
+    );
+    if (targetSocket) {
+        io.to(targetSocket).emit('incomingOffer', offer, users[socket.id].userId);
+    }
     });
 
     /* Answer Channel */
     socket.on("answer", (targetUserId, answer) => {
-
+      const targetSocket = Object.keys(users).find(
+        (socketId) => users[socketId].userId == targetUserId
+    );
+    if (targetSocket) {
+        io.to(targetSocket).emit('incomingAnswer', answer, users[socket.id].userId);
+    }
     });
 
     /* IceCandidate Channel */
     socket.on("iceCandidate", (targetUserId, candidate) => {
-
+      const targetSocket = Object.keys(users).find(
+        (socketId) => users[socketId].userId == targetUserId
+    );
+    if (targetSocket) {
+        io.to(targetSocket).emit('incomingIceCandidate', candidate);
+    }
     });
 
     /* Message Channel */
-    socket.on("sendMessage", () => {
-      
+    socket.on("sendMessage", (roomId, message) => {
+      io.to(roomId).emit('receiveMessage', users[socket.id].userId, message);
     });
+
     /* Disconnect Channel */
     socket.on("disconnect", () => {
-
+      console.log('User disconnected');
+      if (users[socket.id]) {
+          const { roomId, userId } = users[socket.id];
+          delete users[socket.id];
+          io.to(roomId).emit('userDisconnected', userId);
+      }
     });
 
   });
