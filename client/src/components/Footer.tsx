@@ -1,7 +1,17 @@
+import { useSelector } from "react-redux"
+
 const Footer = () => {
+
+  const user  = useSelector((state) => state.user);
+
   return (
-    <div className="absolute bottom-0 py-2 text-right px-2 w-full text-black border-t-2 border-black">
-        Developed with ❤️ by Sachin    
+    <div className="absolute bottom-0 py-2 flex justify-between items-center px-4 w-full text-black border-t-2 border-black">
+      <p className="text-white">
+        Hey, {user && user.username}
+      </p>
+     <p>
+      Developed with ❤️ by Sachin
+     </p>    
     </div>
   )
 }

@@ -10,21 +10,22 @@ import Auth from "./auth/Auth"
 import { useSelector } from "react-redux"
 
 const App = () => {
-  const user = useSelector((state) => state.user);
+  
+  const token = useSelector((state) => state.token);
 
-  const isLoggedIn = user && user.token;
-
+  const isLoggedIn = token && token;
+  
   return (
    <div>
     <Routes>
       <Route path="/auth" element={<Auth />}/>
-      <Route path="/*" element={isLoggedIn ? <Home /> : <Navigate to="/auth" />} />
       <Route path="/buddies" element={<Friends />}/>
       <Route path="/rooms" element={<Room />}/>
       <Route path="/room/:id" element={<RoomSpace />}/>
       <Route path="/chats" element={<Chat />}/>
       <Route path="/audio" element={<Audio />}/>
       <Route path="/video/:roomId" element={<Video />}/>
+      <Route path="/*" element={isLoggedIn ? <Home /> : <Navigate to="/auth" />} />
     </Routes>
    </div>
   )
