@@ -6,6 +6,7 @@ import { BsClockHistory } from "react-icons/bs"
 import { AiFillHome } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { BsPersonFill } from "react-icons/bs" 
 
 const Navbar = () => {
 
@@ -38,6 +39,13 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-5 mx-2">
+
+            <Link to="/profile">
+            <div className="cursor-pointer flex flex-col items-center hover:opacity-80 text-black">
+                <BsPersonFill className="w-[30px] h-[30px]"/>
+                <p className="text-[10px]">Profile</p>
+            </div>
+            </Link>
             
             <Link to="/buddies">
             <div className="cursor-pointer flex flex-col items-center hover:opacity-80 text-black">

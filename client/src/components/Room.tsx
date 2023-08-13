@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 const Room = () => {
   return (
     <div className="h-screen w-screen overflow-x-hidden bg-gradient-to-tl from-[black] to-[white]">
+         
          <Link to="/">
         <div className="absolute top-2 left-3 hover:opacity-90">
             <img src="/logo.png" alt="logo" className="w-[40px] h-[40px]"/>
@@ -13,7 +14,7 @@ const Room = () => {
             <p className="text-[20px] font-semibold">Convo</p>
         </div>
 
-        <div className="mt-4 text-center border-b-black border-b-2">
+        <div className="text-center border-b-black border-b-2">
             <p className="text-[40px] font-bold">Rooms</p>
         </div>
 
