@@ -24,7 +24,7 @@ const Auth = () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ username, email, password })
-            })
+            });
 
             handleLogin();
             
@@ -177,8 +177,6 @@ const Auth = () => {
             Unlock a world of seamless communication with features like video calls, audio calls, and text messages. Collaborate effortlessly in group rooms or have private conversations in individual rooms. Experience secure and user-friendly login to connect with friends, colleagues, and loved ones. Join us now and redefine how you stay connected.
             </p>
         </div>
-
-
 
          <Footer />
     </div>

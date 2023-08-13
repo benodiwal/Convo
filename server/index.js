@@ -5,18 +5,19 @@ import bodyParser from "body-parser"
 import mongoose from "mongoose"
 import { createServer } from "http"
 import { Server } from "socket.io"
+import router from "./routes/auth.js"
 
 const app = express();
 
 /* to get the env variables */
-dotenv.config()
+dotenv.config();
 
 /* Middlewares */
+app.use(cors({
+  origin: '*'
+}));
 app.use(express.static('public'))
 app.use(express.json())
-app.use(cors({
-    origin: '*'
-  }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -24,6 +25,9 @@ const http = createServer(app);
 const io = new Server(http, {
     cors: true
 });
+
+/* Routes */
+app.use("/auth", router);
 
 /* Users */
 const users = {};
@@ -89,7 +93,7 @@ io.on("connection", (socket) => {
 
 
 /* PORT */
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 
 /* Setting up mongoose */
 mongoose.connect(process.env.MONGODB_URI, {
