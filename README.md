@@ -2,7 +2,10 @@
 A WebRTC based real time chat application using web sockets.
 
 ## Some Glimpses
-![Login](4.png)
+![Login](glimpses/4.png)
+![Rooms](glimpses/3.png)
+![Friends](glimpses/2.png)
+![Home](glimpses/1.png)
 
 ## Technologies used
 1. [MongoDB](https://www.mongodb.com/cloud/atlas/)
