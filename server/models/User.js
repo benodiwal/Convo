@@ -23,7 +23,17 @@ const UserSchema = new mongoose.Schema({
     profilePicture: {
         type: String,
         default: "",
-    }
+    },
+    friends: [
+        {
+            type: mongoose.Schema.Types.ObjectId, ref: 'User'
+        }
+    ],
+    friendRequests: [
+        {
+            type: mongoose.Schema.Types.ObjectId, ref: 'User'
+        }
+    ]
 });
 
 // Create the User model

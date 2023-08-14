@@ -6,6 +6,8 @@ import mongoose from "mongoose"
 import { createServer } from "http"
 import { Server } from "socket.io"
 import router from "./routes/auth.js"
+import f_router from "./routes/friends.js"
+import r_router from "./routes/requests.js"
 
 const app = express();
 
@@ -28,6 +30,9 @@ const io = new Server(http, {
 
 /* Routes */
 app.use("/auth", router);
+app.use("/search", router);
+app.use("/", f_router);
+app.use("/", r_router);
 
 /* Users */
 const users = {};
