@@ -1,4 +1,4 @@
-# Convo (still in work)
+# Convo
 A WebRTC based real time chat application using web sockets.
 
 ## Some Glimpses
